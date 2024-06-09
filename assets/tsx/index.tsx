@@ -1,7 +1,9 @@
+import Inputs from "./components/Inputs";
+
 function Index() {
   return (
     <>
-      <p>hello</p>
+      <Inputs />
     </>
   );
 }
