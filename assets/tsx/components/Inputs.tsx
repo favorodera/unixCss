@@ -36,38 +36,50 @@ export default function Inputs() {
   return (
     <>
       <form method="get">
-        <input
-          type="number"
-          name="units-value-input"
-          id="em-input"
-          className="units-value-input"
-          value={emUnitValue}
-          onChange={convertUnits}
-        />
-        <input
-          type="number"
-          name="units-value-input"
-          id="rem-input"
-          className="units-value-input"
-          value={remUnitValue}
-          onChange={convertUnits}
-        />
-        <input
-          type="number"
-          name="units-value-input"
-          id="pixel-input"
-          className="units-value-input"
-          value={pixelUnitValue}
-          onChange={convertUnits}
-        />
-        <input
-          type="number"
-          name="units-value-input"
-          id="percent-input"
-          className="units-value-input"
-          value={percentUnitValue}
-          onChange={convertUnits}
-        />
+        <div className="input-container">
+          <label htmlFor="em-input">EM</label>
+          <input
+            type="number"
+            name="units-value-input"
+            id="em-input"
+            className="units-value-input"
+            value={emUnitValue}
+            onChange={convertUnits}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="rem-input">REM</label>
+          <input
+            type="number"
+            name="units-value-input"
+            id="rem-input"
+            className="units-value-input"
+            value={remUnitValue}
+            onChange={convertUnits}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="pixel-input">PIXEL</label>
+          <input
+            type="number"
+            name="units-value-input"
+            id="pixel-input"
+            className="units-value-input"
+            value={pixelUnitValue}
+            onChange={convertUnits}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="percent-input">PERCENT</label>
+          <input
+            type="number"
+            name="units-value-input"
+            id="percent-input"
+            className="units-value-input"
+            value={percentUnitValue}
+            onChange={convertUnits}
+          />
+        </div>
       </form>
     </>
   );
