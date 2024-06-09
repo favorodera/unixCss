@@ -35,38 +35,40 @@ export default function Inputs() {
 
   return (
     <>
-      <input
-        type="number"
-        name="units-value-input"
-        id="em-input"
-        className="units-value-input"
-        value={emUnitValue}
-        onChange={convertUnits}
-      />
-      <input
-        type="number"
-        name="units-value-input"
-        id="rem-input"
-        className="units-value-input"
-        value={remUnitValue}
-        onChange={convertUnits}
-      />
-      <input
-        type="number"
-        name="units-value-input"
-        id="pixel-input"
-        className="units-value-input"
-        value={pixelUnitValue}
-        onChange={convertUnits}
-      />
-      <input
-        type="number"
-        name="units-value-input"
-        id="percent-input"
-        className="units-value-input"
-        value={percentUnitValue}
-        onChange={convertUnits}
-      />
+      <form method="get">
+        <input
+          type="number"
+          name="units-value-input"
+          id="em-input"
+          className="units-value-input"
+          value={emUnitValue}
+          onChange={convertUnits}
+        />
+        <input
+          type="number"
+          name="units-value-input"
+          id="rem-input"
+          className="units-value-input"
+          value={remUnitValue}
+          onChange={convertUnits}
+        />
+        <input
+          type="number"
+          name="units-value-input"
+          id="pixel-input"
+          className="units-value-input"
+          value={pixelUnitValue}
+          onChange={convertUnits}
+        />
+        <input
+          type="number"
+          name="units-value-input"
+          id="percent-input"
+          className="units-value-input"
+          value={percentUnitValue}
+          onChange={convertUnits}
+        />
+      </form>
     </>
   );
 }
