@@ -10,25 +10,33 @@ export default function Inputs() {
 
   const convertUnits = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.id === "em-input") {
-      setEmUnitValue((emUnitValue = Number(event.target.value)));
-      setRemUnitValue((remUnitValue = emUnitValue + 10));
-      setPixelUnitValue((pixelUnitValue = emUnitValue + 10));
-      setPercentUnitValue((percentUnitValue = emUnitValue + 10));
+      setEmUnitValue((emUnitValue = event.target.value));
+      setRemUnitValue((remUnitValue = emUnitValue = emUnitValue));
+      setPixelUnitValue((pixelUnitValue = Number(emUnitValue) * baseValue));
+      setPercentUnitValue(
+        (percentUnitValue = Number(emUnitValue) * 100) / baseValue
+      );
     } else if (event.target.id === "rem-input") {
-      setRemUnitValue((remUnitValue = Number(event.target.value)));
-      setEmUnitValue((emUnitValue = remUnitValue + 20));
-      setPixelUnitValue((pixelUnitValue = remUnitValue + 20));
-      setPercentUnitValue((percentUnitValue = remUnitValue + 20));
+      setRemUnitValue((remUnitValue = event.target.value));
+      setEmUnitValue((emUnitValue = remUnitValue));
+      setPixelUnitValue((pixelUnitValue = Number(remUnitValue) * baseValue));
+      setPercentUnitValue(
+        (percentUnitValue = Number(remUnitValue) * 100) / baseValue
+      );
     } else if (event.target.id === "pixel-input") {
-      setPixelUnitValue((pixelUnitValue = Number(event.target.value)));
-      setEmUnitValue((emUnitValue = pixelUnitValue + 30));
-      setPercentUnitValue((percentUnitValue = pixelUnitValue + 30));
-      setRemUnitValue((remUnitValue = pixelUnitValue + 30));
+      setPixelUnitValue((pixelUnitValue = event.target.value));
+      setEmUnitValue((emUnitValue = Number(pixelUnitValue) / baseValue));
+      setPercentUnitValue(
+        (percentUnitValue = Number(pixelUnitValue) / baseValue) * 100
+      );
+      setRemUnitValue((remUnitValue = Number(pixelUnitValue) / baseValue));
     } else {
-      setPercentUnitValue((percentUnitValue = Number(event.target.value)));
-      setRemUnitValue((remUnitValue = percentUnitValue + 40));
-      setEmUnitValue((emUnitValue = percentUnitValue + 40));
-      setPixelUnitValue((pixelUnitValue = percentUnitValue + 40));
+      setPercentUnitValue((percentUnitValue = event.target.value));
+      setRemUnitValue((remUnitValue = Number(percentUnitValue) / 100));
+      setEmUnitValue((emUnitValue = remUnitValue));
+      setPixelUnitValue(
+        (pixelUnitValue = Number(percentUnitValue) * baseValue) / 100
+      );
     }
   };
 
@@ -63,7 +71,7 @@ export default function Inputs() {
             type="button"
             className="copy-button"
             onClick={() =>
-              copyUnitValue(emUnitValue === "" ? "0" : emUnitValue + "em")
+              copyUnitValue(emUnitValue === "" ? "0em" : emUnitValue + "em")
             }
           >
             <img src={copyIcon} alt="copy" />
@@ -86,7 +94,7 @@ export default function Inputs() {
             type="button"
             className="copy-button"
             onClick={() =>
-              copyUnitValue(remUnitValue === "" ? "0" : remUnitValue + "rem")
+              copyUnitValue(remUnitValue === "" ? "0rem" : remUnitValue + "rem")
             }
           >
             <img src={copyIcon} alt="copy" />
@@ -109,7 +117,9 @@ export default function Inputs() {
             type="button"
             className="copy-button"
             onClick={() =>
-              copyUnitValue(pixelUnitValue === "" ? "0" : pixelUnitValue + "px")
+              copyUnitValue(
+                pixelUnitValue === "" ? "0px" : pixelUnitValue + "px"
+              )
             }
           >
             <img src={copyIcon} alt="copy" />
@@ -133,7 +143,7 @@ export default function Inputs() {
             className="copy-button"
             onClick={() =>
               copyUnitValue(
-                percentUnitValue === "" ? "0" : percentUnitValue + "%"
+                percentUnitValue === "" ? "0%" : percentUnitValue + "%"
               )
             }
           >
@@ -144,7 +154,7 @@ export default function Inputs() {
 
       <div className="base-value-declaration-and-settings-container">
         <p className="base-value-declaration">
-          Conversions are made based on <span>{baseValue}px</span>
+          Conversions are based on <span>{baseValue}px</span>
         </p>
         <div className="base-value-settings">
           <p>
