@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 $box-shadow:
     10px 10px 20px 0px rgba(0, 0, 0, 0.25) inset,
@@ -10,7 +10,7 @@ $background-color: #1a1a1a;
     padding: 0rem;
     box-sizing: border-box;
     color: #747474;
-    font-family: "Poppins", sans-serif;
+    font-family: "IBM Plex Mono", monospace;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: $background-color;
 }
 
@@ -44,20 +44,28 @@ form {
     gap: 1rem;
 }
 
-.input-container {
+.input-and-copy-button-container {
     display: flex;
-    padding: 0.56rem 1rem;
+    padding: 0.56rem;
     align-items: center;
     justify-content: space-between;
     box-shadow: $box-shadow;
-    gap: 3.5rem;
+    gap: 0.5rem;
     flex: 1 1 18rem;
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1 1 100%;
 }
 
 label {
     font : {
         size: 1rem;
-        weight: 400;
+        weight: 600;
     }
     letter-spacing: 0.02rem;
     width: max-content;
@@ -71,10 +79,15 @@ input {
     outline: none;
     font : {
         size: 2rem;
-        weight: 400;
+        weight: 600;
     }
     letter-spacing: 0.04rem;
-    flex: 1 1 auto;
+    flex: content;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    display: none;
 }
 
 .copy-button {
@@ -85,4 +98,13 @@ input {
     justify-content: center;
     background: none;
     border: none;
+    cursor: pointer;
+    img {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+.copy-button:active {
+    scale: (1.1);
 }

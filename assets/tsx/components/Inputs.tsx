@@ -2,10 +2,10 @@ import { useState } from "react";
 import copyIcon from "../../icons/copy.svg";
 
 export default function Inputs() {
-  let [emUnitValue, setEmUnitValue] = useState<number>(0);
-  let [remUnitValue, setRemUnitValue] = useState<number>(0);
-  let [pixelUnitValue, setPixelUnitValue] = useState<number>(0);
-  let [percentUnitValue, setPercentUnitValue] = useState<number>(0);
+  let [emUnitValue, setEmUnitValue] = useState<number>();
+  let [remUnitValue, setRemUnitValue] = useState<number>();
+  let [pixelUnitValue, setPixelUnitValue] = useState<number>();
+  let [percentUnitValue, setPercentUnitValue] = useState<number>();
   //   let [unitsBaseValue, setUnitsBaseValue] = useState<number>(0);
 
   //   const configureUnitsBaseValue = () => {};
@@ -48,74 +48,105 @@ export default function Inputs() {
   return (
     <>
       <form method="get">
-        <div className="input-container">
-          <label htmlFor="em-input">EM</label>
-          <input
-            type="number"
-            name="units-value-input"
-            id="em-input"
-            className="units-value-input"
-            value={emUnitValue}
-            onChange={convertUnits}
-          />
+        <div className="input-and-copy-button-container">
+          <div className="input-container">
+            <label htmlFor="em-input">EM</label>
+            <input
+              type="number"
+              name="units-value-input"
+              id="em-input"
+              className="units-value-input"
+              placeholder="0"
+              value={emUnitValue}
+              onChange={convertUnits}
+            />
+          </div>
           <button
             type="button"
             className="copy-button"
-            onClick={() => copyUnitValue(String(emUnitValue))}
+            onClick={() =>
+              copyUnitValue(
+                String(emUnitValue === undefined ? "0" : emUnitValue) + "em"
+              )
+            }
           >
             <img src={copyIcon} alt="copy" />
           </button>
         </div>
-        <div className="input-container">
-          <label htmlFor="rem-input">REM</label>
-          <input
-            type="number"
-            name="units-value-input"
-            id="rem-input"
-            className="units-value-input"
-            value={remUnitValue}
-            onChange={convertUnits}
-          />
+        <div className="input-and-copy-button-container">
+          <div className="input-container">
+            <label htmlFor="rem-input">REM</label>
+            <input
+              type="number"
+              name="units-value-input"
+              id="rem-input"
+              className="units-value-input"
+              placeholder="0"
+              value={remUnitValue}
+              onChange={convertUnits}
+            />
+          </div>
           <button
             type="button"
             className="copy-button"
-            onClick={() => copyUnitValue(String(remUnitValue))}
+            onClick={() =>
+              copyUnitValue(
+                String(remUnitValue === undefined ? "0" : remUnitValue) + "rem"
+              )
+            }
           >
             <img src={copyIcon} alt="copy" />
           </button>
         </div>
-        <div className="input-container">
-          <label htmlFor="pixel-input">PIXEL</label>
-          <input
-            type="number"
-            name="units-value-input"
-            id="pixel-input"
-            className="units-value-input"
-            value={pixelUnitValue}
-            onChange={convertUnits}
-          />
+        <div className="input-and-copy-button-container">
+          <div className="input-container">
+            <label htmlFor="pixel-input">PIXEL</label>
+            <input
+              type="number"
+              name="units-value-input"
+              id="pixel-input"
+              className="units-value-input"
+              placeholder="0"
+              value={pixelUnitValue}
+              onChange={convertUnits}
+            />
+          </div>
           <button
             type="button"
             className="copy-button"
-            onClick={() => copyUnitValue(String(pixelUnitValue))}
+            onClick={() =>
+              copyUnitValue(
+                String(pixelUnitValue === undefined ? "0" : pixelUnitValue) +
+                  "px"
+              )
+            }
           >
             <img src={copyIcon} alt="copy" />
           </button>
         </div>
-        <div className="input-container">
-          <label htmlFor="percent-input">PERCENT</label>
-          <input
-            type="number"
-            name="units-value-input"
-            id="percent-input"
-            className="units-value-input"
-            value={percentUnitValue}
-            onChange={convertUnits}
-          />
+        <div className="input-and-copy-button-container">
+          <div className="input-container">
+            <label htmlFor="percent-input">PERCENT</label>
+            <input
+              type="number"
+              name="units-value-input"
+              id="percent-input"
+              className="units-value-input"
+              placeholder="0"
+              value={percentUnitValue}
+              onChange={convertUnits}
+            />
+          </div>
           <button
             type="button"
             className="copy-button"
-            onClick={() => copyUnitValue(String(percentUnitValue))}
+            onClick={() =>
+              copyUnitValue(
+                String(
+                  percentUnitValue === undefined ? "0" : percentUnitValue
+                ) + "%"
+              )
+            }
           >
             <img src={copyIcon} alt="copy" />
           </button>
