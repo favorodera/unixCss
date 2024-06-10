@@ -34,15 +34,8 @@ export default function Inputs() {
     }
   };
 
-  const copyUnitValue = async (unitValue: string) => {
-    if (!navigator.clipboard) {
-      return;
-    }
-    try {
-      await navigator.clipboard.writeText(unitValue);
-    } catch (error) {
-      console.log(error);
-    }
+  const copyUnitValue = (unitValue: string) => {
+    navigator.clipboard.writeText(unitValue);
   };
 
   return (
