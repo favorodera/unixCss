@@ -1,9 +1,11 @@
-import Inputs from "./components/Inputs";
+import Conversion from "./components/Conversion";
+import Nav from "./components/Nav";
 
 function Index() {
   return (
     <>
-      <Inputs />
+    <Nav />
+      <Conversion />
     </>
   );
 }

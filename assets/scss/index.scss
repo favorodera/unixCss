@@ -17,8 +17,6 @@ body {
     min-width: 20rem;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     background-color: $background-color;
 }
@@ -29,10 +27,34 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     height: 100%;
     padding: 1rem;
     background-color: $background-color;
+}
+
+nav {
+    width: 100%;
+    margin-bottom: 7.13rem;
+}
+
+.logo-container {
+    display: flex;
+    gap: 0.1rem;
+
+    :nth-child(1) {
+        font: {
+            size: 1.5rem;
+            weight: 400;
+        }
+    }
+
+    :nth-child(2) {
+        font: {
+            size: 1.5rem;
+            weight: 700;
+        }
+    }
 }
 
 form {
@@ -71,7 +93,7 @@ label {
     width: max-content;
 }
 
-input {
+.units-value-input {
     width: 0;
     background: none;
     border: none;
@@ -107,4 +129,53 @@ input::-webkit-outer-spin-button {
 
 .copy-button:active {
     scale: (1.1);
+}
+
+.base-value-declaration-and-settings-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.12rem;
+}
+
+.base-value-declaration {
+    color: #393939;
+    font: {
+        size: 0.875rem;
+        weight: 400;
+    }
+    letter-spacing: 0.0175rem;
+
+    span {
+        color: #393939;
+        font: {
+            size: 0.875rem;
+            weight: 700;
+        }
+        letter-spacing: 0.0175rem;
+    }
+}
+
+.base-value-settings {
+    display: flex;
+    gap: 0.2rem;
+
+    :nth-child(1) {
+        color: #393939;
+        font: {
+            size: 0.875rem;
+            weight: 700;
+        }
+        letter-spacing: 0.0175rem;
+    }
+
+    :nth-child(2) {
+        width: 4rem;
+        text-align: center;
+        background: none;
+        border: 0.0625rem solid #393939;
+        box-shadow: $box-shadow;
+        outline: none;
+    }
 }

@@ -6,9 +6,7 @@ export default function Inputs() {
   let [remUnitValue, setRemUnitValue] = useState<number | string>("");
   let [pixelUnitValue, setPixelUnitValue] = useState<number | string>("");
   let [percentUnitValue, setPercentUnitValue] = useState<number | string>("");
-  //   let [unitsBaseValue, setUnitsBaseValue] = useState<number>(0);
-
-  //   const configureUnitsBaseValue = () => {};
+  let [baseValue, setBaseValue] = useState<number>(16);
 
   const convertUnits = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.id === "em-input") {
@@ -32,6 +30,13 @@ export default function Inputs() {
       setEmUnitValue((emUnitValue = percentUnitValue + 40));
       setPixelUnitValue((pixelUnitValue = percentUnitValue + 40));
     }
+  };
+
+  const configureBaseValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setBaseValue(
+      (baseValue =
+        Number(event.target.value) === 0 ? 16 : Number(event.target.value))
+    );
   };
 
   const copyUnitValue = (unitValue: string) => {
@@ -136,6 +141,25 @@ export default function Inputs() {
           </button>
         </div>
       </form>
+
+      <div className="base-value-declaration-and-settings-container">
+        <p className="base-value-declaration">
+          Conversions are made based on <span>{baseValue}px</span>
+        </p>
+        <div className="base-value-settings">
+          <p>
+            Change <span>base</span> font-size:
+          </p>
+          <input
+            type="number"
+            name="base-value"
+            id="base-value-input"
+            className="base-value-input"
+            value={String(baseValue)}
+            onChange={configureBaseValue}
+          />
+        </div>
+      </div>
     </>
   );
 }
