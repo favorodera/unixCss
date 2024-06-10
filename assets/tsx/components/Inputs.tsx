@@ -2,10 +2,10 @@ import { useState } from "react";
 import copyIcon from "../../icons/copy.svg";
 
 export default function Inputs() {
-  let [emUnitValue, setEmUnitValue] = useState<number>();
-  let [remUnitValue, setRemUnitValue] = useState<number>();
-  let [pixelUnitValue, setPixelUnitValue] = useState<number>();
-  let [percentUnitValue, setPercentUnitValue] = useState<number>();
+  let [emUnitValue, setEmUnitValue] = useState<number | string>("");
+  let [remUnitValue, setRemUnitValue] = useState<number | string>("");
+  let [pixelUnitValue, setPixelUnitValue] = useState<number | string>("");
+  let [percentUnitValue, setPercentUnitValue] = useState<number | string>("");
   //   let [unitsBaseValue, setUnitsBaseValue] = useState<number>(0);
 
   //   const configureUnitsBaseValue = () => {};
@@ -50,7 +50,7 @@ export default function Inputs() {
               id="em-input"
               className="units-value-input"
               placeholder="0"
-              value={emUnitValue}
+              value={String(emUnitValue)}
               onChange={convertUnits}
             />
           </div>
@@ -58,9 +58,7 @@ export default function Inputs() {
             type="button"
             className="copy-button"
             onClick={() =>
-              copyUnitValue(
-                String(emUnitValue === undefined ? "0" : emUnitValue) + "em"
-              )
+              copyUnitValue(emUnitValue === "" ? "0" : emUnitValue + "em")
             }
           >
             <img src={copyIcon} alt="copy" />
@@ -75,7 +73,7 @@ export default function Inputs() {
               id="rem-input"
               className="units-value-input"
               placeholder="0"
-              value={remUnitValue}
+              value={String(remUnitValue)}
               onChange={convertUnits}
             />
           </div>
@@ -83,9 +81,7 @@ export default function Inputs() {
             type="button"
             className="copy-button"
             onClick={() =>
-              copyUnitValue(
-                String(remUnitValue === undefined ? "0" : remUnitValue) + "rem"
-              )
+              copyUnitValue(remUnitValue === "" ? "0" : remUnitValue + "rem")
             }
           >
             <img src={copyIcon} alt="copy" />
@@ -100,7 +96,7 @@ export default function Inputs() {
               id="pixel-input"
               className="units-value-input"
               placeholder="0"
-              value={pixelUnitValue}
+              value={String(pixelUnitValue)}
               onChange={convertUnits}
             />
           </div>
@@ -108,10 +104,7 @@ export default function Inputs() {
             type="button"
             className="copy-button"
             onClick={() =>
-              copyUnitValue(
-                String(pixelUnitValue === undefined ? "0" : pixelUnitValue) +
-                  "px"
-              )
+              copyUnitValue(pixelUnitValue === "" ? "0" : pixelUnitValue + "px")
             }
           >
             <img src={copyIcon} alt="copy" />
@@ -126,7 +119,7 @@ export default function Inputs() {
               id="percent-input"
               className="units-value-input"
               placeholder="0"
-              value={percentUnitValue}
+              value={String(percentUnitValue)}
               onChange={convertUnits}
             />
           </div>
@@ -135,9 +128,7 @@ export default function Inputs() {
             className="copy-button"
             onClick={() =>
               copyUnitValue(
-                String(
-                  percentUnitValue === undefined ? "0" : percentUnitValue
-                ) + "%"
+                percentUnitValue === "" ? "0" : percentUnitValue + "%"
               )
             }
           >
