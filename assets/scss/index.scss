@@ -17,7 +17,7 @@ body {
     min-width: 20rem;
     min-height: 100vh;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: $background-color;
@@ -27,21 +27,21 @@ body {
     width: 100%;
     max-width: 78rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     padding: 1.5rem;
     background-color: $background-color;
-    flex: 1 1 100%;
 }
 
 form {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 1rem;
-    flex: 1 1 100%;
 }
 
 .input-container {
@@ -50,6 +50,7 @@ form {
     align-items: center;
     justify-content: space-between;
     box-shadow: $box-shadow;
+    gap: 3.5rem;
     flex: 1 1 18rem;
 }
 
@@ -59,10 +60,11 @@ label {
         weight: 400;
     }
     letter-spacing: 0.02rem;
-    flex: 1 1 auto;
+    width: max-content;
 }
 
 input {
+    width: 0;
     background: none;
     border: none;
     text-align: end;
@@ -75,7 +77,4 @@ input {
     flex: 1 1 auto;
 }
 
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
-    display: none;
-}
+

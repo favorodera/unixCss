@@ -1,4 +1,5 @@
 import { useState } from "react";
+import copyIcon from "../../icons/copy.svg";
 
 export default function Inputs() {
   let [emUnitValue, setEmUnitValue] = useState<number>(0);
@@ -33,6 +34,17 @@ export default function Inputs() {
     }
   };
 
+  const copyUnitValue = async (unitValue: string) => {
+    if (!navigator.clipboard) {
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(unitValue);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <form method="get">
@@ -46,6 +58,12 @@ export default function Inputs() {
             value={emUnitValue}
             onChange={convertUnits}
           />
+          <button
+            type="button"
+            onClick={() => copyUnitValue(String(emUnitValue))}
+          >
+            <img src={copyIcon} alt="copy" />
+          </button>
         </div>
         <div className="input-container">
           <label htmlFor="rem-input">REM</label>
@@ -56,7 +74,11 @@ export default function Inputs() {
             className="units-value-input"
             value={remUnitValue}
             onChange={convertUnits}
+            onClick={() => copyUnitValue(String(remUnitValue))}
           />
+          <button type="button">
+            <img src={copyIcon} alt="copy" />
+          </button>
         </div>
         <div className="input-container">
           <label htmlFor="pixel-input">PIXEL</label>
@@ -67,7 +89,11 @@ export default function Inputs() {
             className="units-value-input"
             value={pixelUnitValue}
             onChange={convertUnits}
+            onClick={() => copyUnitValue(String(pixelUnitValue))}
           />
+          <button type="button">
+            <img src={copyIcon} alt="copy" />
+          </button>
         </div>
         <div className="input-container">
           <label htmlFor="percent-input">PERCENT</label>
@@ -78,7 +104,11 @@ export default function Inputs() {
             className="units-value-input"
             value={percentUnitValue}
             onChange={convertUnits}
+            onClick={() => copyUnitValue(String(percentUnitValue))}
           />
+          <button type="button">
+            <img src={copyIcon} alt="copy" />
+          </button>
         </div>
       </form>
     </>
