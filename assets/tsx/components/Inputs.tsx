@@ -60,6 +60,7 @@ export default function Inputs() {
           />
           <button
             type="button"
+            className="copy-button"
             onClick={() => copyUnitValue(String(emUnitValue))}
           >
             <img src={copyIcon} alt="copy" />
@@ -77,6 +78,7 @@ export default function Inputs() {
           />
           <button
             type="button"
+            className="copy-button"
             onClick={() => copyUnitValue(String(remUnitValue))}
           >
             <img src={copyIcon} alt="copy" />
@@ -94,6 +96,7 @@ export default function Inputs() {
           />
           <button
             type="button"
+            className="copy-button"
             onClick={() => copyUnitValue(String(pixelUnitValue))}
           >
             <img src={copyIcon} alt="copy" />
@@ -111,6 +114,7 @@ export default function Inputs() {
           />
           <button
             type="button"
+            className="copy-button"
             onClick={() => copyUnitValue(String(percentUnitValue))}
           >
             <img src={copyIcon} alt="copy" />

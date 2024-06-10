@@ -77,4 +77,12 @@ input {
     flex: 1 1 auto;
 }
 
-
+.copy-button {
+    width: 2.5625rem;
+    height: 2.5625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+}
