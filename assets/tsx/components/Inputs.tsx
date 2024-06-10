@@ -74,9 +74,11 @@ export default function Inputs() {
             className="units-value-input"
             value={remUnitValue}
             onChange={convertUnits}
-            onClick={() => copyUnitValue(String(remUnitValue))}
           />
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => copyUnitValue(String(remUnitValue))}
+          >
             <img src={copyIcon} alt="copy" />
           </button>
         </div>
@@ -89,9 +91,11 @@ export default function Inputs() {
             className="units-value-input"
             value={pixelUnitValue}
             onChange={convertUnits}
-            onClick={() => copyUnitValue(String(pixelUnitValue))}
           />
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => copyUnitValue(String(pixelUnitValue))}
+          >
             <img src={copyIcon} alt="copy" />
           </button>
         </div>
@@ -104,9 +108,11 @@ export default function Inputs() {
             className="units-value-input"
             value={percentUnitValue}
             onChange={convertUnits}
-            onClick={() => copyUnitValue(String(percentUnitValue))}
           />
-          <button type="button">
+          <button
+            type="button"
+            onClick={() => copyUnitValue(String(percentUnitValue))}
+          >
             <img src={copyIcon} alt="copy" />
           </button>
         </div>
