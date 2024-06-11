@@ -66,7 +66,7 @@ export default function Inputs() {
 
   return (
     <>
-      <form method="get">
+      <form method="get" name="units-inputs-form">
         <div className="input-and-copy-button-container">
           <div className="input-container">
             <label htmlFor="em-input">EM</label>
