@@ -35,7 +35,7 @@ body {
 
 nav {
     width: 100%;
-    margin-bottom: 7.13rem;
+    margin-bottom: 9.375rem;
 }
 
 .logo-container {
@@ -186,5 +186,11 @@ input::-webkit-outer-spin-button {
         border: 0.0625rem solid #393939;
         box-shadow: $box-shadow;
         outline: none;
+    }
+}
+
+@media only screen and (min-width: 928px) and (max-width: 1231px) {
+    .input-and-copy-button-container {
+        flex: 1 1 27.4688rem;
     }
 }
