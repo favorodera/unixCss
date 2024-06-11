@@ -3,7 +3,7 @@ Unix Css simplifies your workflow by allowing you to convert values between vari
 ###
 
 ###
-# Features:
+## Features:
 * Supports common CSS units like px, rem, em, and %.
 * User-friendly interface for quick and easy conversions.
 * Lightweight and efficient code.
@@ -12,18 +12,18 @@ Unix Css simplifies your workflow by allowing you to convert values between vari
 ###
 
 ###
-# Benefits:
+## Benefits:
 * Improves development efficiency.
 * Reduces errors in unit conversions.
 * Promotes consistent and maintainable CSS code.
 ###
 
 ###
-# Open to Contribution? YES.
+## Open to Contribution? YES.
 ###
 
 ###
-# To Run Locally
+## To Run Locally
  ```bash
  git clone https://github.com/favorodera/unixCss
 ```
