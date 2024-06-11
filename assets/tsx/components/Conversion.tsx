@@ -12,39 +12,52 @@ export default function Inputs() {
     if (event.target.id === "em-input") {
       setEmUnitValue((emUnitValue = event.target.value));
       setRemUnitValue((remUnitValue = emUnitValue = emUnitValue));
-      setPixelUnitValue((pixelUnitValue = Number(emUnitValue) * baseValue));
+      setPixelUnitValue(
+        (pixelUnitValue =
+          Number(emUnitValue) * (baseValue === 0 ? 16 : baseValue))
+      );
       setPercentUnitValue(
-        (percentUnitValue = Number(emUnitValue) * 100) / baseValue
+        (percentUnitValue = Number(emUnitValue) * 100) /
+          (baseValue === 0 ? 16 : baseValue)
       );
     } else if (event.target.id === "rem-input") {
       setRemUnitValue((remUnitValue = event.target.value));
       setEmUnitValue((emUnitValue = remUnitValue));
-      setPixelUnitValue((pixelUnitValue = Number(remUnitValue) * baseValue));
+      setPixelUnitValue(
+        (pixelUnitValue =
+          Number(remUnitValue) * (baseValue === 0 ? 16 : baseValue))
+      );
       setPercentUnitValue(
-        (percentUnitValue = Number(remUnitValue) * 100) / baseValue
+        (percentUnitValue = Number(remUnitValue) * 100) /
+          (baseValue === 0 ? 16 : baseValue)
       );
     } else if (event.target.id === "pixel-input") {
       setPixelUnitValue((pixelUnitValue = event.target.value));
-      setEmUnitValue((emUnitValue = Number(pixelUnitValue) / baseValue));
-      setPercentUnitValue(
-        (percentUnitValue = Number(pixelUnitValue) / baseValue) * 100
+      setEmUnitValue(
+        (emUnitValue =
+          Number(pixelUnitValue) / (baseValue === 0 ? 16 : baseValue))
       );
-      setRemUnitValue((remUnitValue = Number(pixelUnitValue) / baseValue));
+      setPercentUnitValue(
+        (percentUnitValue =
+          Number(pixelUnitValue) / (baseValue === 0 ? 16 : baseValue)) * 100
+      );
+      setRemUnitValue(
+        (remUnitValue =
+          Number(pixelUnitValue) / (baseValue === 0 ? 16 : baseValue))
+      );
     } else {
       setPercentUnitValue((percentUnitValue = event.target.value));
       setRemUnitValue((remUnitValue = Number(percentUnitValue) / 100));
       setEmUnitValue((emUnitValue = remUnitValue));
       setPixelUnitValue(
-        (pixelUnitValue = Number(percentUnitValue) * baseValue) / 100
+        (pixelUnitValue =
+          Number(percentUnitValue) * (baseValue === 0 ? 16 : baseValue)) / 100
       );
     }
   };
 
   const configureBaseValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBaseValue(
-      (baseValue =
-        Number(event.target.value) === 0 ? 16 : Number(event.target.value))
-    );
+    setBaseValue((baseValue = Number(event.target.value)));
   };
 
   const copyUnitValue = (unitValue: string) => {
@@ -154,7 +167,8 @@ export default function Inputs() {
 
       <div className="base-value-declaration-and-settings-container">
         <p className="base-value-declaration">
-          Conversions are based on <span>{baseValue}px</span>
+          Conversions are based on{" "}
+          <span>{baseValue === 0 ? 16 : baseValue}px</span>
         </p>
         <div className="base-value-settings">
           <p>
