@@ -1,11 +1,13 @@
 import Conversion from "./components/Conversion";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 function Index() {
   return (
     <>
-    <Nav />
+      <Nav />
       <Conversion />
+      <Footer />
     </>
   );
 }
