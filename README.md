@@ -34,6 +34,6 @@ Unix Css simplifies your workflow by allowing you to convert values between vari
  pnpm install
 ```
 ```bash
- pnpm run dev
+ pnpm dev
 ```
 ###
